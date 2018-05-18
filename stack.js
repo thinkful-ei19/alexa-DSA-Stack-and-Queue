@@ -111,25 +111,46 @@ function is_palindrome(stack) {
 }
 
 
-console.log(is_palindrome('dad')); // => true
-console.log(is_palindrome('open')); // => false
+// console.log(is_palindrome('dad')); // => true
+// console.log(is_palindrome('open')); // => false
 // console.log(is_palindrome('A man, a plan, a canal: Panama')); // => true
 // console.log(is_palindrome('1001')); // => true
 // console.log(is_palindrome("Tauhida")); // => false
 
 
-
-
-
-function matchingParens(str) {
-  const stack = new Stack();
-
-
-}
 // see open  - push
 // see closed - pop
 // if stack is empty at end - parens are matching //-> return true
 // if stack is not empty - parens are not matching // => return false
+function matchingParens(str) {
+  const stack = new Stack();
+  
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(') {
+      stack.push(str[i]);
+    } 
+    
+    // return false is theres nothing to close
+    if (str[i] === ')' && !stack.top) {
+      return false;
+    }
+
+    if (str[i] === ')') {
+      stack.pop();
+    }
+  }
+
+  if (peek(stack)) {
+    return true;
+  }
+  return false;
+}
+
+
+console.log(matchingParens('(5 + 2)'));
+console.log(matchingParens('(5 + 2) - 1 )'));
+
+
 
 const starTrek = new Stack();
 
