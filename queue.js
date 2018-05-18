@@ -64,8 +64,22 @@ function peek(queue) {
   }
 
   console.log('this is queue.first.value', queue.first.value);
-//   console.log('this is queue.last.value', queue.last.value);
+  //   console.log('this is queue.last.value', queue.last.value);
   return queue.first.value;
+}
+
+function display(queue) {
+  if(queue.first === null) {
+    return 'The queue is empty';
+  }
+
+  let current = queue.first;
+
+  while(current) {
+    console.log(current.value);
+    current = current.prev;
+  }
+  return;
 }
 
 const starTrekQ = new Queue();
@@ -83,4 +97,5 @@ function main() {
 }
 
 main();
-peek(starTrekQ);
+// peek(starTrekQ);
+display(starTrekQ);
