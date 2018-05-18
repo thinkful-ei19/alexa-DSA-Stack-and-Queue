@@ -62,44 +62,74 @@ function display(stack) {
   }
 }
 
+// function is_palindrome(stack) {
+//   let tempStack = new Stack();
+//   stack = stack.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  
+//   for (let i = 0; i < stack.length; i++) {
+//     tempStack.push(stack[i]);
+//   }
+
+//   // console.log('this is tempStack', JSON.stringify(tempStack, null, 2));
+
+//   let newStack = new Stack();
+//   let current = tempStack.top;
+
+//   while (current) {
+//     let node = tempStack.pop();
+//     // console.log(node);
+//     newStack.push(node);
+//     current = current.next;
+//   }
+
+//   if (tempStack === newStack) {
+//     return true;
+//   }
+
+//   return false;
+
+
+//   // console.log('this is the newStack', JSON.stringify(newStack, null, 2));
+//   // return newStack;
+// }
+
 function is_palindrome(stack) {
   let tempStack = new Stack();
   stack = stack.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
-  
-  for (let i = 0; i < stack.length; i++) {
+
+  for(let i = 0; i < stack.length; i++) {
     tempStack.push(stack[i]);
   }
 
-  // console.log('this is tempStack', JSON.stringify(tempStack, null, 2));
-
-  let newStack = new Stack();
-  let current = tempStack.top;
-
-  while (current) {
-    let node = tempStack.pop();
-    // console.log(node);
-    newStack.push(node);
-    current = current.next;
+  for (let i = 0; i < stack.length; i++) {
+    let currentLetter = tempStack.pop();
+    if (currentLetter !== stack[i]) {
+      return false;
+    } 
   }
-
-  if (tempStack === newStack) {
-    return true;
-  }
-
-  return false;
-
-
-  // console.log('this is the newStack', JSON.stringify(newStack, null, 2));
-  // return newStack;
+  return true;
 }
 
+
 console.log(is_palindrome('dad')); // => true
-// is_palindrome('open'); // => false
+console.log(is_palindrome('open')); // => false
 // console.log(is_palindrome('A man, a plan, a canal: Panama')); // => true
 // console.log(is_palindrome('1001')); // => true
 // console.log(is_palindrome("Tauhida")); // => false
 
 
+
+
+
+function matchingParens(str) {
+  const stack = new Stack();
+
+
+}
+// see open  - push
+// see closed - pop
+// if stack is empty at end - parens are matching //-> return true
+// if stack is not empty - parens are not matching // => return false
 
 const starTrek = new Stack();
 
