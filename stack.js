@@ -23,6 +23,7 @@ class Stack {
     // add data to the new node
     // have the pointer point to the top
     const node = new _Node(data, this.top);
+    this.top = node;
     return node;
   }
 
@@ -38,6 +39,15 @@ class Stack {
 
 /////////// WRITE HELPER FUNCTIONS BELOW ///////////
 
+function peek(stack) {
+  if (stack.top === null) {
+    return 'The stack is empty';
+  }
+  const node = stack.top;
+  console.log('The top of the stack is:', node.data);
+  return node.data;
+}
+
 
 const starTrek = new Stack();
 
@@ -50,9 +60,9 @@ function main() {
   // when you remove, start at top and work down
 
   console.log(JSON.stringify(starTrek, null, 2));
-  return starTrek;
 }
 
 
 main();
+peek(starTrek);
 
