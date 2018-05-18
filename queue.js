@@ -51,7 +51,23 @@ class Queue {
     if (node === this.last) {
       this.last = null;
     }
-    
+
     return node.value;
   }
 }
+
+const starTrekQ = new Queue();
+
+function main() {
+  starTrekQ.enqueue('Kirk');
+  starTrekQ.enqueue('Spock');
+  starTrekQ.enqueue('Uhura');
+  starTrekQ.enqueue('Sulu');
+  starTrekQ.enqueue('Checkov');
+
+
+  console.log(starTrekQ);
+  return starTrekQ;
+}
+
+main();
