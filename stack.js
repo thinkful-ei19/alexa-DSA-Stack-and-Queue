@@ -146,9 +146,40 @@ function matchingParens(str) {
   return false;
 }
 
+// console.log(matchingParens('(5 + 2)'));
+// console.log(matchingParens('(5 + 2) - 1 )'));
 
-console.log(matchingParens('(5 + 2)'));
-console.log(matchingParens('(5 + 2) - 1 )'));
+
+function matchingPairs(str) {
+  const stack = new Stack();
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(' || str[i] === '{' || str[i] === '[') {
+      stack.push(str[i]);
+    }
+
+    if (str[i] === ')' && stack.top.data === '(') {
+      stack.pop();
+    }
+    if (str[i] === '}' && stack.top.data === '{') {
+      stack.pop();
+    }
+    if (str[i] === ']' && stack.top.data === '[') {
+      stack.pop();
+    }
+  }
+
+  if (stack.top) {
+    return false;
+  }
+  return true;
+}
+
+// ()
+// ([{}]) // => return true
+// ({)} // => return false
+console.log(matchingPairs('([{}])'));
+console.log(matchingPairs('({)}'));
 
 
 
