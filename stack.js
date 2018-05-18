@@ -48,6 +48,22 @@ function peek(stack) {
   return node.data;
 }
 
+function display(stack) {
+  if (stack.top === null) {
+    return 'The stack is empty';
+  }
+
+  let current = stack.top;
+
+  while(current.next) {
+    console.log('this is in the stack', current.data);
+    current = current.next;
+  }
+}
+
+
+
+
 
 const starTrek = new Stack();
 
@@ -65,4 +81,5 @@ function main() {
 
 main();
 peek(starTrek);
+display(starTrek);
 
