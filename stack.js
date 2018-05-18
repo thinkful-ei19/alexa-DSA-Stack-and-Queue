@@ -45,7 +45,7 @@ function peek(stack) {
     return 'The stack is empty';
   }
   const node = stack.top;
-  console.log('The top of the stack is:', node.data);
+  //console.log('The top of the stack is:', node.data);
   return node.data;
 }
 
@@ -178,12 +178,71 @@ function matchingPairs(str) {
 // ()
 // ([{}]) // => return true
 // ({)} // => return false
-console.log(matchingPairs('([{}])'));
-console.log(matchingPairs('({)}'));
+// console.log(matchingPairs('([{}])'));
+// console.log(matchingPairs('({)}'));
+
+
+// function matchingQuotes(str) {
+//   const stack = new Stack();
+
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === '"') {
+
+//     }
+//   }
+// }
+
+// ''
+// ""
+// 'hi my name is Alexa (((((((('
+// console.log(matchingQuotes());
+
+function sortStack(stack) {
+  let tempStack = new Stack();
+  // tempStack.push(stack.top);
+
+  // console.log('this is the top', tempStack.top.data); 
+
+  while (stack.top) {
+    let temp = stack.pop();
+
+    while(tempStack.top && peek(tempStack) > temp) {
+      let char = tempStack.pop();
+      stack.push(char);
+
+    }
+    tempStack.push(temp);
+  }
+  console.log('this is the stack', display(stack));
+  console.log('this is tempStack:', display(tempStack));
+  return tempStack;
+}
+
+// iteration 1
+// myStack ==>  200(top), 7, 4, 3, 10   // want => 3, 4, 7, 10, 200
+// tempStack = null
+
+// temp = stack.top = 200
+// stack.pop => now myStack is 7(top), 4, 3, 10
+
+// char = tempStack.top = 200
+// stack.push(char) => 200, 7, 4, 3, 10
+
+// iteration 2
+// myStack ==> 200, 7, 4, 3, 10
+// tempStack = stack.top = 2
+
+
+
+
+
+// tempStack ==> stack.top = 2   // compare popped value from stack to top of temp
+// iteration 1, temp = 2  && tempStack.top = 2  2 >  so 
 
 
 
 const starTrek = new Stack();
+const myStack = new Stack();
 
 function main() {
   starTrek.push('Kirk');
@@ -195,13 +254,19 @@ function main() {
   starTrek.pop();
   starTrek.pop();
 
+  myStack.push(10);
+  myStack.push(3);
+  myStack.push(4);
+  myStack.push(7);
+  myStack.push(200);
 
-  console.log(JSON.stringify(starTrek, null, 2));
-  return starTrek;
+  // console.log(JSON.stringify(myStack, null, 2)); 
+  // console.log(JSON.stringify(starTrek, null, 2));
 }
 
 
-// main();
+main();
 // peek(starTrek);
 // display(starTrek);
 
+sortStack(myStack);
