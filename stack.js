@@ -17,6 +17,7 @@ class Stack {
     // then data will be top of stack
     if (this.top === null) {
       this.top = new _Node(data, null);
+      return this.top;
     }
 
     // if the top already has something then create a new node
@@ -55,8 +56,8 @@ function display(stack) {
 
   let current = stack.top;
 
-  while(current.next) {
-    console.log('this is in the stack', current.data);
+  while(current) {
+    console.log('this is in the stack:', current.data);
     current = current.next;
   }
 }
@@ -74,6 +75,9 @@ function main() {
   starTrek.push('Scotty');
 
   // when you remove, start at top and work down
+  starTrek.pop();
+  starTrek.pop();
+
 
   console.log(JSON.stringify(starTrek, null, 2));
 }
