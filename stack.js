@@ -233,14 +233,6 @@ function sortStack(stack) {
 // tempStack = stack.top = 2
 
 
-
-
-
-// tempStack ==> stack.top = 2   // compare popped value from stack to top of temp
-// iteration 1, temp = 2  && tempStack.top = 2  2 >  so 
-
-
-
 const starTrek = new Stack();
 const myStack = new Stack();
 

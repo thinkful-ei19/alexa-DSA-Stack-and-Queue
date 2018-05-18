@@ -56,6 +56,18 @@ class Queue {
   }
 }
 
+///////// HELPER FUNCTIONS //////////
+
+function peek(queue) {
+  if (queue.first === null) {
+    return 'The queue is empty';
+  }
+
+  console.log('this is queue.first.value', queue.first.value);
+//   console.log('this is queue.last.value', queue.last.value);
+  return queue.first.value;
+}
+
 const starTrekQ = new Queue();
 
 function main() {
@@ -71,3 +83,4 @@ function main() {
 }
 
 main();
+peek(starTrekQ);
