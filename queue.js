@@ -91,6 +91,8 @@ function main() {
   starTrekQ.enqueue('Sulu');
   starTrekQ.enqueue('Checkov');
 
+  starTrekQ.dequeue('Kirk');
+  starTrekQ.dequeue('Spock');
 
   console.log(starTrekQ);
   return starTrekQ;
