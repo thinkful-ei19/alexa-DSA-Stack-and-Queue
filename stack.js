@@ -36,6 +36,7 @@ class Stack {
   }
 }
 
+/////////// WRITE HELPER FUNCTIONS BELOW ///////////
 
 
 const starTrek = new Stack();
@@ -46,7 +47,7 @@ function main() {
   starTrek.push('McCoy');
   starTrek.push('Scotty');
 
-  
+  // when you remove, start at top and work down
 
   console.log(JSON.stringify(starTrek, null, 2));
   return starTrek;
